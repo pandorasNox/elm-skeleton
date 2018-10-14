@@ -1,10 +1,10 @@
+
 module Main exposing (Model, Msg(..), init, main, update, view, viewInput, viewValidation)
 
 import Browser
-import Html exposing (..)
+import Html exposing (Html, div, text, input, button)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onInput)
-
+import Html.Events exposing (onInput, onClick)
 
 
 -- MAIN
@@ -12,7 +12,6 @@ import Html.Events exposing (onInput)
 
 main =
     Browser.sandbox { init = init, update = update, view = view }
-
 
 
 -- MODEL
@@ -40,6 +39,7 @@ type Msg
     | Password String
     | PasswordAgain String
     | Age String
+    | Dosubmit
 
 
 update : Msg -> Model -> Model
@@ -57,6 +57,8 @@ update msg model =
         Age age ->
             { model | age = (String.toInt age |> Maybe.withDefault 0) }
 
+        Dosubmit ->
+            model
 
 
 -- VIEW
@@ -70,6 +72,7 @@ view model =
         , viewInput "password" "Re-enter Password" model.passwordAgain PasswordAgain
         , viewInput "number" "How old are you?" (String.fromInt model.age) Age
         , viewValidation model
+        , button [ onClick Dosubmit ] [ text "submit" ]
         ]
 
 

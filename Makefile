@@ -11,7 +11,7 @@ clear-cache:
 	rm -rf $(PWD)/elm-stuff
 
 .PHONY: cli
-cli: ##@dev login to docker container with elm tooling
+cli: ##@dev provide docker based environment with elm tooling
 	docker run -it --rm -v "$(PWD):/code" -w "/code" -v "/tmp/.elm:/tmp/.elm" -e "HOME=/tmp" -u "$(UID):$(GID)" -p 8000:8000 --entrypoint="bash" codesimple/elm:0.19
 
 .PHONY: build
