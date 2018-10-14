@@ -8,4 +8,5 @@
     - use current node version
     - add elm format
     - add elm-test (npm install -g elm-test)
+        - check out rogeriochaves/elm-test-bdd-style
 
