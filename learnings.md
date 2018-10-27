@@ -25,3 +25,6 @@
                 Just val -> \
                     val
         ```
+
+- you can read the colon as "has the type" So `update` has the type `Msg -> Model -> Model`. `->`  in a type says that it is a function
+
