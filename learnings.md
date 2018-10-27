@@ -28,3 +28,10 @@
 
 - you can read the colon as "has the type" So `update` has the type `Msg -> Model -> Model`. `->`  in a type says that it is a function
 
+- the main function
+    - type signature `main : Program Never Model Msg` or `main : Program () Model Msg`
+        - resource: https://package.elm-lang.org/packages/elm/core/latest/Platform
+        - says:
+            - is return type
+            - type with 3 type variables `type Program flags model msg`
+
