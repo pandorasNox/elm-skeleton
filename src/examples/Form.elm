@@ -23,13 +23,13 @@ type alias Model =
     , password : String
     , passwordAgain : String
     , age : Int
+    , validate : Bool
     }
 
 
 init : Model
 init =
-    Model "" "" "" 0
-
+    Model "" "" "" 0 False
 
 
 -- UPDATE
@@ -47,19 +47,19 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         Name name ->
-            { model | name = name }
+            { model | name = name, validate = False }
 
         Password password ->
-            { model | password = password }
+            { model | password = password, validate = False }
 
         PasswordAgain password ->
-            { model | passwordAgain = password }
+            { model | passwordAgain = password, validate = False }
 
         Age age ->
-            { model | age = (String.toInt age |> Maybe.withDefault 0) }
+            { model | age = (String.toInt age |> Maybe.withDefault 0), validate = False }
 
         Dosubmit ->
-            model
+            { model | validate = True }
 
 
 -- VIEW
@@ -84,11 +84,14 @@ viewInput t p v toMsg =
 
 viewValidation : Model -> Html msg
 viewValidation model =
-    if String.length model.password < 8 then
+    if model.validate == False then
+        div [] []
+
+    else if String.length model.password < 8 then
         div [ style "color" "red" ] [ text "password to short" ]
 
-    else if model.password == model.passwordAgain then
-        div [ style "color" "green" ] [ text "OK" ]
+    else if model.password /= model.passwordAgain then
+        div [ style "color" "red" ] [ text "Passwords do not match!" ]
 
     else
-        div [ style "color" "red" ] [ text "Passwords do not match!" ]
+        div [ style "color" "green" ] [ text "OK" ]
