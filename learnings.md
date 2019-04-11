@@ -35,5 +35,9 @@
             - is return type
             - type with 3 type variables `type Program flags model msg`
 
+- `ELM_HOME` vs `HOME`
+    - e.g. `/tmp/` === `HOME`
+    - e.g. `/tmp/.elm` === `ELM_HOME` 
+
 #### resources
 - https://github.com/elm-guides/elm-for-js/blob/master/How%20to%20Read%20a%20Type%20Annotation.md

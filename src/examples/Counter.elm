@@ -1,19 +1,9 @@
 
+module Counter exposing(main)
+
 import Browser
-import Html exposing (Html, div, button, text)
+import Html exposing (Html, button, text)
 import Html.Events exposing (onClick)
-
-
--- MAIN
-
-
-main : Program () Model Msg
-main =
-    Browser.sandbox
-        { init = init
-        , view = view
-        , update = update
-        }
 
 
 -- MODEL
@@ -49,15 +39,27 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
+    Html.div []
         [ button [ onClick Increase ] [ text "+" ]
         , button [ onClick Decrease ] [ text "-" ]
-        , div []
+        , Html.div []
             [ text (String.fromInt model) ]
-        , div [] []
+        , Html.div [] []
         , button [ onClick Reset ] [ text "Reset" ]
         ]
 
 
 -- subscriptions
+
+
+-- MAIN
+
+
+main : Program () Model Msg
+main =
+    Browser.sandbox
+        { init = init
+        , view = view
+        , update = update
+        }
 
