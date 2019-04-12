@@ -8,7 +8,7 @@ GID:=$(shell id -g)
 PWD:=$(shell pwd)
 
 
-ELM_OPTS=-it --rm -v "$(PWD):/code" -w "/code" -v "$(PWD)/.elm_home/tmp/.elm:/tmp/.elm" -e "HOME=/tmp" -u "$(UID):$(GID)"
+ELM_OPTS=-it --rm -v "$(PWD):/code" -w "/code" -v "$(PWD)/.elm_home/:/tmp/.elm" -e "ELM_HOME=/tmp/.elm" -u "$(UID):$(GID)"
 
 
 .PHONY: clear-cache
