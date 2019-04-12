@@ -36,8 +36,12 @@
             - type with 3 type variables `type Program flags model msg`
 
 - `ELM_HOME` vs `HOME`
+    - `HOME` isn't related to Elm. On unix-like systems it points to the users home directory
+    - `ELM_HOME` is related to Elm and usually points to the `.elm` directory in the users home directory
     - e.g. `/tmp/` === `HOME`
-    - e.g. `/tmp/.elm` === `ELM_HOME` 
+        - (if you set it on purpose, e.g. docker)
+    - e.g. `/tmp/.elm` === `ELM_HOME`
+        - (defualt if not otherwise specified)
 
 #### resources
 - https://github.com/elm-guides/elm-for-js/blob/master/How%20to%20Read%20a%20Type%20Annotation.md
