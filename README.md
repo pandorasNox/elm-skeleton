@@ -15,4 +15,7 @@
 
 - create k8s / minikube workflow
 
+- css
+    - tailwind
+        - https://www.purgecss.com/#cli
 
