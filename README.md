@@ -10,3 +10,9 @@
     - add elm-test (npm install -g elm-test)
         - check out rogeriochaves/elm-test-bdd-style
 
+- use docker-compose ?!
+    - volumes for elm directories
+
+- create k8s / minikube workflow
+
+
